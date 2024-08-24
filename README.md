@@ -13,6 +13,7 @@
 - [✓] Longest Substring
 - [✓] Scary JavaScript
 - [×] Pizza for my Friends
+- [✓] TV Channel
 
 ### Python
 
