@@ -14,6 +14,7 @@
 - [✓] Scary JavaScript
 - [×] Pizza for my Friends
 - [✓] TV Channel
+- [✓] Bomb Scout
 
 ### Python
 
