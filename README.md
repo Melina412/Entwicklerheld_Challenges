@@ -12,7 +12,7 @@
 - [✓] Fizzbuzz
 - [✓] Longest Substring
 - [✓] Scary JavaScript
-- [×] Pizza for my Friends
+- [✓] Pizza for my Friends (🔺Teil 2 geht nicht auf Entwicklerheld)
 - [✓] TV Channel
 - [✓] Bomb Scout
 

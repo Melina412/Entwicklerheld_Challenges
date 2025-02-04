@@ -1,16 +1,27 @@
 import './App.css';
 import PizzaList from './components/PizzaList';
 import { pizzaOffers, friends } from './utils/lists.js';
+import { printFriendsForAPizza } from './utils/friendsForAPizza.js';
+import { useState } from 'react';
 
 function App() {
-  const onClickCallback = (pizza) => {
-    // dummy function
-    console.log(pizza);
+  const [pizza, setPizza] = useState(null);
+  const [pizzaFriends, setPizzaFriends] = useState(null);
+
+  const onClickCallback = (friends, pizza) => {
+    setPizza(pizza);
+    printFriendsForAPizza(pizza, friends);
+    setPizzaFriends(printFriendsForAPizza(pizza, friends));
   };
 
   return (
     <>
-      <PizzaList pizzaOffers={pizzaOffers} friends={friends} onClickCallback={onClickCallback} />
+      <PizzaList
+        pizzaOffers={pizzaOffers}
+        friends={friends}
+        onClickCallback={onClickCallback}
+        pizzaFriends={pizzaFriends}
+      />
     </>
   );
 }
