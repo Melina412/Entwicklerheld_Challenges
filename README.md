@@ -9,16 +9,17 @@
 
 ### Javascript
 
-- [✓] Fizzbuzz
+- [✓] [Fizzbuzz](https://platform.entwicklerheld.de/challenge/fizzbuzz?technology=javascript)
 - [✓] Longest Substring
-- [✓] Scary JavaScript
-- [✓] Pizza for my Friends (🔺Teil 2 geht nicht auf Entwicklerheld)
-- [✓] TV Channel
-- [✓] Bomb Scout
+- [✓] [Scary JavaScript](https://platform.entwicklerheld.de/challenge/scary-javascript?technology=javascript)
+- [✓] [Pizza for my Friend](https://platform.entwicklerheld.de/challenge/pizza-for-my-friends-challenge?technology=javascript%2Breact) (🔺Teil 2 geht nicht auf Entwicklerheld)
+- [✓] [TV Channel](https://platform.entwicklerheld.de/challenge/tv-channel?technology=javascript)
+- [✓] [Bomb Scout](https://platform.entwicklerheld.de/challenge/bomb-scout?technology=javascript)
+- [✓] [Scale Generator](https://platform.entwicklerheld.de/challenge/scale-generator?technology=javascript)
 
 ### Python
 
-- [✓] Fizzbuzz
+- [✓] [Fizzbuzz](https://platform.entwicklerheld.de/challenge/fizzbuzz?technology=python)
 - [✓] Fizzbuzz ohne if
 - [×] Fibonacci Numbers
 - [×] Linear Regression
