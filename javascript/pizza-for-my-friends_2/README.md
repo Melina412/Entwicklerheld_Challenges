@@ -1,12 +1,12 @@
 # Pizza for my Friends - Version 2
 
-In dieser Version habe ich analog zu demTemplate alle Funktionen in eine einzelne Datei geschrieben und ein paar Tippfehler verbessert. Man kann auf Entwicklerheld nämlich leider keine React Projektstruktur erstellen, weil man ja nur eine einzige Datei zur Verfügung hat. Das 2. Scenario geht ging zuerst trotzdem nicht. Es wurden keine Fehler oder irgend ein Feedback von den Tests angezeigt, die Aufgabe war einfach nur rot. Man hat auch keinen Einblick in die Projektstruktur, also ist debugging leider auch nicht möglich. Aber dann habe ich noch einen letzten Tippfehler gefunden, und als ich den korrigiert hatte wurden dann beim Test Run auch endlich die Fehler angezeigt.
+In dieser Version habe ich analog zu dem Template alle Funktionen in eine einzelne Datei geschrieben und ein paar Tippfehler verbessert. Man kann auf Entwicklerheld nämlich leider keine React Projektstruktur erstellen, weil man ja nur eine einzige Datei zur Verfügung hat. Das 2. Scenario ging zuerst trotzdem nicht. Es wurden keine Fehler oder irgend ein Feedback von den Tests angezeigt, die Aufgabe war einfach nur rot. Man hat auch keinen Einblick in die Projektstruktur, also ist debugging leider auch nicht möglich. Aber dann habe ich noch einen letzten Tippfehler gefunden, und als ich den korrigiert hatte wurden dann beim Test Run auch endlich die Fehler angezeigt.
 
 ## Fehler in der vorherigen Version
 
 ### onClickCallback Parameter vertauscht
 
-Aufgabe: "If you click on a pizza, a method named `onClickCallback` with the arguments `friends` and `pizza` should be called," - Für mich heißt das, die Callback Funktion sieht so aus: `onClickCallback(friends, pizza)`. Aber LEIDER NEIN, weil sie eigentlich so aussehen soll: `onClickCallback(pizza, friends)`, also mit umgedrehter Reihenfolge der Parameter. Das ist unlogisch und man kann man das halt erst merken, wenn die Tests zeigen, dass die expected und received inputs genau vertauscht sind.
+Aufgabe: "If you click on a pizza, a method named `onClickCallback` with the arguments `friends` and `pizza` should be called," - Für mich heißt das, die Callback Funktion sieht so aus: `onClickCallback(friends, pizza)`. Aber LEIDER NEIN, weil sie eigentlich so aussehen soll: `onClickCallback(pizza, friends)`, also mit umgedrehter Reihenfolge der Parameter. Das ist unlogisch und man kann das halt erst merken, wenn die Tests zeigen, dass die expected und received inputs genau vertauscht sind.
 
 ### Sortierung nach matchCount vergessen
 
