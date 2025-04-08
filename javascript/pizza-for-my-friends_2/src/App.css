@@ -1,0 +1,52 @@
+#root {
+  max-width: 1280px;
+  padding: 2rem;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  padding: 0.2rem 0;
+  cursor: pointer;
+  transition: color 0.25s;
+  font-size: larger;
+
+  &:hover {
+    color: #646cff;
+  }
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  gap: 10rem;
+}
+
+.best-friends {
+  align-self: flex-start;
+}
+
+.fans {
+  display: flex;
+  align-items: flex-start;
+  gap: 6rem;
+}
+
+.pizza-fans {
+  margin-top: 1em;
+}
+
+.pizza-friends {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: 1fr 3fr;
+  padding: 0.5rem 0;
+}
+
+.pizza-friends p {
+  padding-right: 0.5rem;
+  margin: 0;
+}
