@@ -1,8 +1,20 @@
 # Pizza for my Friends - Version 2
 
-In dieser Version habe ich analog zu dem Entwicklerheld-Template alle Funktionen in eine Datei geschrieben und ein paar Tippfehler verbessert. Das 2. Scenario geht trotzdem nicht auf Entwicklerheld. Es werden keine Fehler oder irgend ein Feedback angezeigt, die Aufgabe ist beim testen einfach nur rot. Man hat auch keinen Einblick in die Projektstruktur, also ist debugging leider auch nicht möglich.
+In dieser Version habe ich analog zu demTemplate alle Funktionen in eine einzelne Datei geschrieben und ein paar Tippfehler verbessert. Man kann auf Entwicklerheld nämlich leider keine React Projektstruktur erstellen, weil man ja nur eine einzige Datei zur Verfügung hat. Das 2. Scenario geht ging zuerst trotzdem nicht. Es wurden keine Fehler oder irgend ein Feedback von den Tests angezeigt, die Aufgabe war einfach nur rot. Man hat auch keinen Einblick in die Projektstruktur, also ist debugging leider auch nicht möglich. Aber dann habe ich noch einen letzten Tippfehler gefunden, und als ich den korrigiert hatte wurden dann beim Test Run auch endlich die Fehler angezeigt.
 
-In meinem Projekt funktioniert alles und ich habe noch ein paar Funktionen ergänzt, damit man sich die Ausgaben den Funktionen auch ansehen kann. Die Version ohne Extras findet ihr hier:
+## Fehler in der vorherigen Version
+
+### onClickCallback Parameter vertauscht
+
+Aufgabe: "If you click on a pizza, a method named `onClickCallback` with the arguments `friends` and `pizza` should be called," - Für mich heißt das, die Callback Funktion sieht so aus: `onClickCallback(friends, pizza)`. Aber LEIDER NEIN, weil sie eigentlich so aussehen soll: `onClickCallback(pizza, friends)`, also mit umgedrehter Reihenfolge der Parameter. Das ist unlogisch und man kann man das halt erst merken, wenn die Tests zeigen, dass die expected und received inputs genau vertauscht sind.
+
+### Sortierung nach matchCount vergessen
+
+Ein weiterer Fehler war in der `printPizzaFans`-Funktion. Hier hatte ich nur die Freunde mit matches ermittelt und diese dann alphabetisch sortiert. Jedoch musste man zuerst noch die Freunde mit dem höchsten matchCount filtern und nur diese dann alphabetisch sortieren.
+
+## Code
+
+In meinem Projekt habe noch ein paar Funktionen ergänzt, damit man sich die Ausgaben den Funktionen auch ansehen kann. Die Version ohne Extras ist hier:
 
 ```js
 import React from 'react';
@@ -14,7 +26,7 @@ export function printPizzaFans(friends, pizzaOffers) {
   return friends.map((friend) => {
     const favouritePizzas = pizzaOffers
       .filter((pizza) => !pizza.toppings.some((topping) => friend.noGos.includes(topping)))
-      .reduce((favorite, pizza) => {
+      .reduce((favourite, pizza) => {
         const matchCount = pizza.toppings.filter((topping) => friend.preferences.includes(topping)).length;
 
         if (favourite.length === 0 || matchCount > favourite[0].matchCount) {
@@ -46,15 +58,19 @@ export function printFriendsForAPizza(pizza, friends) {
       const matchCount = friend.preferences.filter((topping) => pizza.toppings.includes(topping)).length;
       return { matchCount, friend };
     })
-    .filter((friend) => friend.matchCount > 0);
+    // hier müssen erst noch die Freunde mit dem höchsten matchCount gefiltert werden
+    .filter((friend) => friend.matchCount > 0)
+    .sort((a, b) => b.matchCount - a.matchCount);
+
+  const bestMatchCount = bestFriends[0].matchCount;
 
   return bestFriends
+    .filter((friend) => friend.matchCount === bestMatchCount)
     .map((friend) => friend.friend.name)
-    .sort()
     .join(', ');
 }
 
-export const onClickCallback = (friends, pizza) => {
+export const onClickCallback = (pizza, friends) => {
   printFriendsForAPizza(pizza, friends);
 };
 
@@ -62,7 +78,7 @@ export function PizzaList({ pizzaOffers, friends, onClickCallback }) {
   return (
     <ul>
       {pizzaOffers.map((pizza) => (
-        <li key={pizza.id} onClick={() => onClickCallback(friends, pizza)}>
+        <li key={pizza.id} onClick={() => onClickCallback(pizza, friends)}>
           {pizza.name}
         </li>
       ))}

@@ -40,11 +40,15 @@ export function printFriendsForAPizza(pizza, friends) {
       const matchCount = friend.preferences.filter((topping) => pizza.toppings.includes(topping)).length;
       return { matchCount, friend };
     })
-    .filter((friend) => friend.matchCount > 0);
+    .filter((friend) => friend.matchCount > 0)
+    // matchCount muss hier noch absteigend sortiert werden, weil im nächsten Schritt nur die Freunde mit der höchsten Übereinstimmung gefiltert werden sollen!
+    .sort((a, b) => b.matchCount - a.matchCount);
+
+  const bestMatchCount = bestFriends[0].matchCount;
 
   const result = bestFriends
+    .filter((friend) => friend.matchCount === bestMatchCount)
     .map((friend) => friend.friend.name)
-    .sort()
     .join(', ');
 
   return result;
